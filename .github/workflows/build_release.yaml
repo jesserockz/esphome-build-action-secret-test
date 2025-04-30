@@ -34,7 +34,7 @@ jobs:
 
       - name: Build firmware using ESPHome
         id: esphome
-        uses: esphome/build-action@v7.0.0
+        uses: esphome/build-action@v6
         with:
           yaml-file: device.yaml
 

@@ -1,6 +1,6 @@
 substitutions:
-  fw_ver: "v1.0.3"
-  
+  fw_ver: "v1.0.4"
+
 esphome:
   name: test
   friendly_name: test
@@ -21,6 +21,6 @@ wifi:
     password: !secret password
 
 captive_portal:
-    
+
 time:
   - platform: sntp
