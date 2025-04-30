@@ -15,8 +15,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-tags: true 
-          fetch-depth: 0 
+          fetch-tags: true
+          fetch-depth: 0
 
       - name: Create secrets.yaml
         run: |
@@ -34,7 +34,7 @@ jobs:
 
       - name: Build firmware using ESPHome
         id: esphome
-        uses: esphome/build-action@v6
+        uses: esphome/build-action@v7.0.0
         with:
           yaml-file: device.yaml
 
@@ -60,5 +60,5 @@ jobs:
         if: steps.check_version.outputs.new_release == 'true'
         run: |
           gh release create ${{ steps.check_version.outputs.FW_VERSION }} ${{steps.esphome.outputs.name}}/*.bin --title "Release ${{ steps.check_version.outputs.FW_VERSION }}"
-        env: 
+        env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
